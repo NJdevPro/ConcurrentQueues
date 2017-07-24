@@ -1,4 +1,7 @@
 # ConcurrentQueues
 C++ concurrent queues
 
-Just an exercise when learning C++-11.
+Thread safe unbounded concurrent queue
+and bounded queue with a fixed capacity.
+
+Just an exercise while learning C++11.
