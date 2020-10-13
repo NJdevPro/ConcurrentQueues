@@ -1,7 +1,7 @@
-// Testouille.cpp : définit le point d'entrée pour l'application console.
+// Testouille.cppÂ : entry point for the console application
 //
 
-#include "stdafx.h"
+#include "stdafx.h"	// only necessary on Microsoft Visual C++
 
 #include <iostream>
 #include <sstream> 
@@ -11,7 +11,7 @@
 #include "ConcurrentQueue.h"
 #include "ConcurrentBlockingQueue.h"
 
-using MyQ = ConcurrentBlockingQueue<int>;
+using MyQ = ConcurrentBlockingQueue<int>; // define the type of queue here
 
 unsigned int unique = 0;	// unique item id
 
@@ -43,7 +43,7 @@ int main()
 
 	using namespace std::placeholders;
 
-	// producer thread
+	// producer threads
 	std::thread prod1(std::bind(&produce, std::ref(q), 1, iter_prod));
 	std::thread prod2(std::bind(&produce, std::ref(q), 2, iter_prod));
 	std::thread prod3(std::bind(&produce, std::ref(q), 3, iter_prod));
