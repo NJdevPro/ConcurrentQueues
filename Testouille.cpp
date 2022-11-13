@@ -1,12 +1,11 @@
 // Testouille.cpp : entry point for the console application
 //
 
-#include "stdafx.h"	// only necessary on Microsoft Visual C++
+// #include "stdafx.h"	// only necessary on Microsoft Visual C++
 
 #include <iostream>
-#include <sstream> 
-#include <cstring> 
 #include <iomanip>
+#include <functional>
 #include <thread>
 #include "ConcurrentQueue.h"
 #include "ConcurrentBlockingQueue.h"
@@ -41,8 +40,6 @@ int main()
 	const int iter_prod = 10;
 	const int iter_cons = 10;
 
-	using namespace std::placeholders;
-
 	// producer threads
 	std::thread prod1(std::bind(&produce, std::ref(q), 1, iter_prod));
 	std::thread prod2(std::bind(&produce, std::ref(q), 2, iter_prod));
@@ -51,14 +48,14 @@ int main()
 	// consumer threads
 	std::thread consumer1(std::bind(&consume, std::ref(q), 1, iter_cons));
 	std::thread consumer2(std::bind(&consume, std::ref(q), 2, iter_cons));
-//	std::thread consumer3(std::bind(&consume, std::ref(q), 3, iter_cons));
+	std::thread consumer3(std::bind(&consume, std::ref(q), 3, iter_cons));
 
 	prod1.join();
 	prod2.join();
 	prod3.join();
 	consumer1.join();
 	consumer2.join();
-//	consumer3.join();
+	consumer3.join();
 
 }
 
