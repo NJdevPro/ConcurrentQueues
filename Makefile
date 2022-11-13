@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-Wall -O2 -I.
+CFLAGS=-Wall -O2 -I. -lpthread
 DEPS = ConcurrentQueue.h ConcurrentBlockingQueue.h
 OBJ = Testouille.o
 
